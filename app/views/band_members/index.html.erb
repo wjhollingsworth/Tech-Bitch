@@ -1,0 +1,33 @@
+<h1>Tech Bitch</h1>
+
+<%= image_tag('TechBitch.jpg'); %>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Band Members</th>
+      <th>Instrument</th>
+      <th>Bio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @band_members.each do |band_member| %>
+      <tr>
+        <td><%= band_member.name %></td>
+        <td><%= band_member.instrument %></td>
+        <td><%= band_member.bio %></td>
+        <td><%= link_to 'Show', band_member %></td>
+        <td><%= link_to 'Edit', edit_band_member_path(band_member) %></td>
+        <td><%= link_to 'Destroy', band_member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Band member', new_band_member_path %>
